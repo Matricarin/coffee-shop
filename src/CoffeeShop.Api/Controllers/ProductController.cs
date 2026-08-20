@@ -9,5 +9,11 @@ namespace CoffeeShop.Api.Controllers
         //  TODO get products
 
         //  TODO get product
+
+        //  TODO remove product
+
+        //  TODO update product
+
+        //  TODO create product
     }
 }

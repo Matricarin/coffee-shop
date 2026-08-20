@@ -10,6 +10,8 @@ namespace CoffeeShop.Api.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        
+        //  TODO login
+
+        //  TODO register
     }
 }

@@ -6,6 +6,8 @@ namespace CoffeeShop.Api.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-                
+        //  TODO get products
+
+        //  TODO get product
     }
 }

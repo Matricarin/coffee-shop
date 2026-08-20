@@ -3,10 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace CoffeeShop.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class ProductController : ControllerBase
     {
-        //  TODO get products
+        [HttpGet]
+        public async Task<IActionResult> GetProducts()
+        {
+            throw new NotImplementedException();
+        }
+        
 
         //  TODO get product
 

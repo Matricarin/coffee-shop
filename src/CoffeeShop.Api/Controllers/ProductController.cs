@@ -1,4 +1,5 @@
 using CoffeeShop.Api.Data;
+using CoffeeShop.Api.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,11 @@ namespace CoffeeShop.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            return Ok(await dbContext.Products.ToListAsync());
+            return Ok(new CoffeeShopResponse
+            {
+                Result = await dbContext.Products.ToListAsync(),
+                HttpStatusCode = System.Net.HttpStatusCode.OK
+            });
         }
         
 

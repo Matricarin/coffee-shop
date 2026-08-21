@@ -10,5 +10,6 @@ namespace CoffeeShop.Api.Data
         //  TODO implement DbContext
 
         public DbSet<AppUser> AppUsers {get; set;}
+        public DbSet<Product> Products {get; set;}
     }
 }

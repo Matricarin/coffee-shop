@@ -1,4 +1,7 @@
+using CoffeeShop.Api.Data;
+
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoffeeShop.Api.Controllers
 {
@@ -7,10 +10,17 @@ namespace CoffeeShop.Api.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class ProductController : ControllerBase
     {
+        private readonly CoffeeShopDbContext dbContext;
+
+        public ProductController(CoffeeShopDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            throw new NotImplementedException();
+            return Ok(await dbContext.Products.ToListAsync());
         }
         
 

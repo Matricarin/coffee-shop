@@ -23,13 +23,47 @@ namespace CoffeeShop.Api.Controllers
         {
             return Ok(new CoffeeShopResponse
             {
-                Result = await dbContext.Products.ToListAsync(),
+                Result = await dbContext.Products.AsNoTracking().ToListAsync(),
                 HttpStatusCode = System.Net.HttpStatusCode.OK
             });
         }
-        
 
-        //  TODO get product
+
+        [HttpGet]
+        public async Task<IActionResult> GetProduct(Guid guid)
+        {
+            if (guid == Guid.Empty)
+            {
+                return BadRequest(
+                    new CoffeeShopResponse()
+                    {
+                        HttpStatusCode = System.Net.HttpStatusCode.BadRequest,
+                        IsSuccess = false,
+                        Result = null
+                    }
+                );
+            }
+
+            var product = await dbContext.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Id == guid);
+
+            if (product is null)
+            {
+                return NotFound(new CoffeeShopResponse()
+                {
+                    HttpStatusCode = System.Net.HttpStatusCode.NotFound,
+                    IsSuccess = false,
+                    Result = null,
+                    ErrorMessages = ["Product wasn't found"]
+                });
+            }
+
+            return Ok(new CoffeeShopResponse()
+            {
+                HttpStatusCode = System.Net.HttpStatusCode.OK,
+                Result = product,
+                IsSuccess = true
+            });
+        }
 
         //  TODO remove product
 

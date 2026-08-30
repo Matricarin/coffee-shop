@@ -1,6 +1,8 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/backend/" />
-  <Folder Name="/src/NewFolder1/" />
+  <Folder Name="/src/frontend/">
+    <Project Path="src/frontend/CoffeeShop.Web/CoffeeShop.Web.csproj" Id="76e0de70-8b86-47aa-80c0-b89ff8b1f6f1" />
+  </Folder>
   <Folder Name="/test/" />
 </Solution>

@@ -2,7 +2,7 @@ namespace CoffeeShop.Api.Extensions;
 
 public static class ServicesExtensions
 {
-    public static void AddCoffeShopDbContext
+    public static void AddCoffeeShopDbContext
     (
         this IServiceCollection collection,
         IConfiguration configuration

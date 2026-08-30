@@ -1,74 +1,70 @@
 using CoffeeShop.Api.Data;
 using CoffeeShop.Api.Models;
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
-namespace CoffeeShop.Api.Controllers
+namespace CoffeeShop.Api.Controllers;
+
+[ApiController]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
+public class ProductController : ControllerBase
 {
-    [ApiController]
-    [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/[controller]")]
-    public class ProductController : ControllerBase
+    private readonly CoffeeShopDbContext dbContext;
+
+    public ProductController(CoffeeShopDbContext dbContext)
     {
-        private readonly CoffeeShopDbContext dbContext;
+        this.dbContext = dbContext;
+    }
 
-        public ProductController(CoffeeShopDbContext dbContext)
+    [HttpGet]
+    public async Task<IActionResult> GetProducts()
+    {
+        return Ok(new CoffeeShopResponse
         {
-            this.dbContext = dbContext;
+            Result = await dbContext.Products.AsNoTracking().ToListAsync(), HttpStatusCode = HttpStatusCode.OK
+        });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetProduct(Guid guid)
+    {
+        if (guid == Guid.Empty)
+        {
+            return BadRequest(
+                new CoffeeShopResponse { HttpStatusCode = HttpStatusCode.BadRequest, IsSuccess = false, Result = null }
+            );
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetProducts()
+        Product? product = await dbContext.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Id == guid);
+
+        if (product is null)
         {
-            return Ok(new CoffeeShopResponse
+            return NotFound(new CoffeeShopResponse
             {
-                Result = await dbContext.Products.AsNoTracking().ToListAsync(),
-                HttpStatusCode = System.Net.HttpStatusCode.OK
+                HttpStatusCode = HttpStatusCode.NotFound,
+                IsSuccess = false,
+                Result = null,
+                ErrorMessages = ["Product wasn't found"]
             });
         }
 
+        return Ok(new CoffeeShopResponse { HttpStatusCode = HttpStatusCode.OK, Result = product, IsSuccess = true });
+    }
 
-        [HttpGet]
-        public async Task<IActionResult> GetProduct(Guid guid)
-        {
-            if (guid == Guid.Empty)
-            {
-                return BadRequest(
-                    new CoffeeShopResponse()
-                    {
-                        HttpStatusCode = System.Net.HttpStatusCode.BadRequest,
-                        IsSuccess = false,
-                        Result = null
-                    }
-                );
-            }
+    public async Task<IActionResult> RemoveProduct(Guid guid)
+    {
+        throw new NotImplementedException();
+    }
 
-            var product = await dbContext.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Id == guid);
+    public async Task<IActionResult> EditProduct()
+    {
+        throw new NotImplementedException();
+    }
 
-            if (product is null)
-            {
-                return NotFound(new CoffeeShopResponse()
-                {
-                    HttpStatusCode = System.Net.HttpStatusCode.NotFound,
-                    IsSuccess = false,
-                    Result = null,
-                    ErrorMessages = ["Product wasn't found"]
-                });
-            }
-
-            return Ok(new CoffeeShopResponse()
-            {
-                HttpStatusCode = System.Net.HttpStatusCode.OK,
-                Result = product,
-                IsSuccess = true
-            });
-        }
-
-        //  TODO remove product
-
-        //  TODO update product
-
-        //  TODO create product
+    public async Task<IActionResult> DeleteProduct()
+    {
+        throw new NotImplementedException();
     }
 }

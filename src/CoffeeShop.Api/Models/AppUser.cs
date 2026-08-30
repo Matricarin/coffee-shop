@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace CoffeeShop.Api.Models
-{
-    public class AppUser : IdentityUser
-    {
-        public string DisplayedName {get; set;}  
+namespace CoffeeShop.Api.Models;
 
-        //  TODO implement user model      
-    }
+public class AppUser : IdentityUser
+{
+    public string DisplayedName { get; set; }
+
+    //  TODO implement user model      
 }

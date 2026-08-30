@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+namespace CoffeeShop.Api.Data;
 
-namespace CoffeeShop.Api.Data
+public sealed class InitProductGenerator
 {
-    public sealed class InitProductGenerator
-    {
-        //  TODO implement init data generation
-    }
+    //  TODO implement init data generation
 }

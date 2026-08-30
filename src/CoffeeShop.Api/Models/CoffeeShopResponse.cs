@@ -1,12 +1,11 @@
 using System.Net;
 
-namespace CoffeeShop.Api.Models
+namespace CoffeeShop.Api.Models;
+
+public sealed record CoffeeShopResponse
 {
-    public sealed record CoffeeShopResponse
-    {
-        public object? Result {get; init;}
-        public bool IsSuccess {get; init;} = true;
-        public HttpStatusCode HttpStatusCode {get; init;}
-        public List<string> ErrorMessages {get; init;} = [];
-    }
+    public object? Result { get; init; }
+    public bool IsSuccess { get; init; } = true;
+    public HttpStatusCode HttpStatusCode { get; init; }
+    public List<string> ErrorMessages { get; init; } = [];
 }

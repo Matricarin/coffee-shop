@@ -2,45 +2,45 @@
 
 namespace CoffeeShop.Web.Services;
 
-public sealed class CatalogService
+public sealed class DrinksService
 {
-    public async Task<List<CatalogItem>> GetCatalogItemsAsync()
+    public async Task<List<DrinkItem>> GetDrinksAsync()
     {
         await Task.Delay(300);
 
         return
         [
-            new CatalogItem
+            new DrinkItem
             (
                 Guid.NewGuid(),
                 "Espresso",
                 "Black, tasty and hot",
                 1.25m,
-                "/images/espresso.jpg"
+                "/img/espresso.png"
             ),
-            new CatalogItem
+            new DrinkItem
             (
                 Guid.NewGuid(),
                 "Cappuccino",
                 "Milky, fancy and soft",
                 2.00m,
-                "/images/cappuccino.jpg"
+                "/img/cappuccino.png"
             ),
-            new CatalogItem
+            new DrinkItem
             (
                 Guid.NewGuid(),
-                "Flat White",
+                "Flat-White",
                 "Milky, fancy and strong",
                 1.80m,
-                "/images/flat-white.jpg"
+                "/img/flat-white.png"
             ),
-            new CatalogItem
+            new DrinkItem
             (
                 Guid.NewGuid(),
                 "Latte",
                 "Milky, chilly and creamy",
                 2.50m,
-                "/images/latte.jpg"
+                "/img/latte.png"
             ),
         ];
     }

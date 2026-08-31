@@ -1,6 +1,6 @@
 ﻿namespace CoffeeShop.Web.Models;
 
-public sealed record CatalogItem(
+public sealed record DrinkItem(
     Guid Id,
     string Name,
     string Description,

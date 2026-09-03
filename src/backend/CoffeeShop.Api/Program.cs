@@ -1,3 +1,4 @@
+using CoffeeShop.Api.Endpoints;
 using CoffeeShop.Api.Extensions;
 
 namespace CoffeeShop.Api;
@@ -18,8 +19,8 @@ public static class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-        
-        app.MapGet("/", (HttpContext _) => "Hello!");
+
+        app.MapCoffeeShopEndpoints();
 
         app.Run();
     }

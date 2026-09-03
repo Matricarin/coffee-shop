@@ -5,8 +5,17 @@ public static class CoffeeShopApi
     public static WebApplication MapCoffeeShopEndpoints(this WebApplication app)
     {
         app.MapGroup("/auth").MapAuthGroups();
+        app.MapGroup("/cards");
+        app.MapGroup("/covers").MapCoversEndpoints();
 
         return app;
+    }
+
+    private static IEndpointRouteBuilder MapCoversEndpoints(this IEndpointRouteBuilder group)
+    {
+        group.MapPost("/new-cover", () => "Админ добавляет новую обложку в хранилище");
+        group.MapGet("/list", () => "Получаем список обложек");
+        return group;
     }
 
     private static IEndpointRouteBuilder MapAuthGroups(this IEndpointRouteBuilder group)
@@ -20,20 +29,20 @@ public static class CoffeeShopApi
 
     private static IEndpointRouteBuilder MapAdminAuthEndpoints(this IEndpointRouteBuilder group)
     {
-        group.MapPost("/register", () => "Admin registration");
+        group.MapPost("/register", () => "Регистрация админа");
 
-        group.MapPost("/login", () => "Enter in admin panel");
+        group.MapPost("/login", () => "Админ входит в систему");
 
         return group;
     }
 
     private static IEndpointRouteBuilder MapClientsAuthEndpoints(this IEndpointRouteBuilder group)
     {
-        group.MapPost("/register", () => "App registration");
+        group.MapPost("/register", () => "Регистрация клиента");
 
-        group.MapPost("/login", () => "Enter in app");
+        group.MapPost("/login", () => "Клиент входит в приложение");
 
-        group.MapPost("/confirm", () => "Confirm enter");
+        group.MapPost("/confirm", () => "Подтверждаем вход по смс");
 
         return group;
     }

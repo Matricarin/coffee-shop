@@ -13,7 +13,7 @@ public static class CoffeeShopApi
     {
         group.MapGroup("/admin").MapAdminAuthEndpoints();
 
-        group.MapGroup("/app").MapAppAuthEndpoints();
+        group.MapGroup("/clients").MapClientsAuthEndpoints();
 
         return group;
     }
@@ -27,7 +27,7 @@ public static class CoffeeShopApi
         return group;
     }
 
-    private static IEndpointRouteBuilder MapAppAuthEndpoints(this IEndpointRouteBuilder group)
+    private static IEndpointRouteBuilder MapClientsAuthEndpoints(this IEndpointRouteBuilder group)
     {
         group.MapPost("/register", () => "App registration");
 

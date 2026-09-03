@@ -10,9 +10,9 @@ public static class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddCoffeeShopContext(builder.Configuration);
+        //builder.Services.AddCoffeeShopContext(builder.Configuration);
 
-        builder.Services.AddIdentityContext();
+        //builder.Services.AddIdentityContext();
 
         //  TODO: Зачем нужен? На каком этапе?
         builder.Services.AddHealthChecks();

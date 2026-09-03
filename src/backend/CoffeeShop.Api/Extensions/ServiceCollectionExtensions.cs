@@ -30,6 +30,10 @@ public static class ServiceCollectionExtensions
             .AddEntityFrameworkStores<CoffeeShopContext>()
             .AddUserManager<UserManager<ApplicationUser>>();
 
+        //  TODO: почему нельзя зарегистрировать отдельных менеджеров для пользователей.
+        //services.AddScoped<UserManager<AdminUser>>();
+        //services.AddScoped<UserManager<ClientUser>>();
+
         return services;
     }
 }

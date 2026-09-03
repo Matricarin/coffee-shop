@@ -4,7 +4,7 @@
     <Project Path="src/backend/CoffeeShop.Api/CoffeeShop.Api.csproj" Id="85f80e94-a6ef-4228-85f4-29965c5aae61" />
   </Folder>
   <Folder Name="/src/frontend/">
-    <Project Path="src/frontend/CoffeeShop.Admin/CoffeeShop.Admin.csproj" Id="15128891-7288-49d3-8b5e-22cd5058e8eb" />
+    <Project Path="src/frontend/CoffeeShop.Admin/CoffeeShop.Admin.csproj" Id="84433ffa-747a-4c41-bdbf-50f0fe61f88c" />
     <Project Path="src/frontend/CoffeeShop.App/CoffeeShop.App.csproj" Id="ca6c5ec0-f133-4bdf-a175-46796ac510c3" />
   </Folder>
   <Folder Name="/test/">

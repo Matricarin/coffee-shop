@@ -1,10 +1,15 @@
+using CoffeeShop.Api.Extensions;
+
 namespace CoffeeShop.Api;
 
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddCoffeeShopContext(builder.Configuration);
+        builder.Services.AddIdentityContext();
 
         builder.Services.AddAuthorization();
         
@@ -14,11 +19,7 @@ public class Program
 
         app.UseAuthorization();
         
-        app.MapGet("/", (HttpContext httpContext) =>
-        {
-
-            return "Hello!";
-        });
+        app.MapGet("/", (HttpContext _) => "Hello!");
 
         app.Run();
     }

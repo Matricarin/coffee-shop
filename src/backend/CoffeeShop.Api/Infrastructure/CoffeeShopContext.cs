@@ -6,8 +6,8 @@ namespace CoffeeShop.Api.Infrastructure;
 
 public sealed class CoffeeShopContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 {
-    public DbSet<Administrator> AdminUsers => Set<Administrator>();
-    public DbSet<Client> ClientUsers => Set<Client>();
+    public DbSet<Administrator> Administrators => Set<Administrator>();
+    public DbSet<Client> Clients => Set<Client>();
 
     public CoffeeShopContext(DbContextOptions options) : base(options) { }
 

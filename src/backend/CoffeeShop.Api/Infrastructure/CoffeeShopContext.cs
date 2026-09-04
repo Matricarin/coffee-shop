@@ -1,4 +1,4 @@
-﻿using CoffeeShop.Api.Models;
+﻿using CoffeeShop.Api.Models.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,8 +6,8 @@ namespace CoffeeShop.Api.Infrastructure;
 
 public sealed class CoffeeShopContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 {
-    public DbSet<AdminUser> AdminUsers => Set<AdminUser>();
-    public DbSet<ClientUser> ClientUsers => Set<ClientUser>();
+    public DbSet<Administrator> AdminUsers => Set<Administrator>();
+    public DbSet<Client> ClientUsers => Set<Client>();
 
     public CoffeeShopContext(DbContextOptions options) : base(options) { }
 
@@ -17,15 +17,15 @@ public sealed class CoffeeShopContext : IdentityDbContext<ApplicationUser, Appli
 
         builder.Entity<ApplicationUser>()
             .HasDiscriminator<string>("User Type")
-            .HasValue<AdminUser>(ApplicationRoles.Admin)
-            .HasValue<ClientUser>(ApplicationRoles.Client);
+            .HasValue<Administrator>(ApplicationRoles.Administrator)
+            .HasValue<Client>(ApplicationRoles.Client);
 
-        builder.Entity<AdminUser>(b =>
+        builder.Entity<Administrator>(b =>
         {
             b.Property(u => u.Email).IsRequired();
         });
 
-        builder.Entity<ClientUser>(b =>
+        builder.Entity<Client>(b =>
         {
             b.Property(u => u.PhoneNumber).IsRequired();
         });

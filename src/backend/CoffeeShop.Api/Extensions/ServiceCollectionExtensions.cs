@@ -1,5 +1,5 @@
 ﻿using CoffeeShop.Api.Infrastructure;
-using CoffeeShop.Api.Models;
+using CoffeeShop.Api.Models.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,8 +31,8 @@ public static class ServiceCollectionExtensions
             .AddUserManager<UserManager<ApplicationUser>>();
 
         //  TODO: почему нельзя зарегистрировать отдельных менеджеров для пользователей.
-        //services.AddScoped<UserManager<AdminUser>>();
-        //services.AddScoped<UserManager<ClientUser>>();
+        //services.AddScoped<UserManager<Administrator>>();
+        //services.AddScoped<UserManager<Client>>();
 
         return services;
     }

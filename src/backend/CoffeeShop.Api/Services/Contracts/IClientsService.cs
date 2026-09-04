@@ -2,8 +2,9 @@
 
 namespace CoffeeShop.Api.Services.Contracts;
 
-public interface IAdministratorsService
+public interface IClientsService
 {
-    Administrator Register();
+    Client Register();
     void Login();
+    void Confirm();
 }

@@ -1,5 +1,5 @@
 ﻿namespace CoffeeShop.Api.Services;
 
-public sealed class ClientUserService
+public sealed class AdministratorsService
 {
 }

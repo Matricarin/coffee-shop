@@ -1,7 +1,8 @@
 ﻿namespace CoffeeShop.Api.Models;
 
-public class CardCover
+public sealed class CardCover
 {
     public Guid Id { get; set; }
-    public string ImageUrl { get; set; }
+    public string? Tag { get; set; }
+    public required string ImageUrl { get; set; }
 }

@@ -9,5 +9,4 @@ public class Card
     public bool IsFreeDrinkAvailable { get; set; } = false;
     public int TargetAmountOfPurchase { get; set; }
     public int CurrentAmountOfPurchase { get; set; }
-    public string QrCode { get; set; }
 }

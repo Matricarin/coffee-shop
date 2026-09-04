@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace CoffeeShop.Admin.Views;
+namespace CoffeeShop.Admin;
 
 public partial class MainWindow : Window
 {

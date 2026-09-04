@@ -4,5 +4,5 @@ namespace CoffeeShop.Api.Services.Contracts;
 
 public interface IPurchaseService
 {
-    Card MakePurchase();
+    Purchase MakePurchase(Card card);
 }

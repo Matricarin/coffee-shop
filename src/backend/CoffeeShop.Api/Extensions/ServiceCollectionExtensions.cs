@@ -20,6 +20,8 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection AddIdentityContext(this IServiceCollection services)
     {
+        //  TODO: проблема валидации почты и номера телефона
+
         services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {
                 options.Password.RequireDigit = true;

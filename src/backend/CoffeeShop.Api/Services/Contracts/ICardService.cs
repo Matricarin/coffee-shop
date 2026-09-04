@@ -6,4 +6,6 @@ public interface ICardService
 {
     Card CreateCard();
     Card SetCardCover();
+    List<Card> GetClientCards();
+    List<Card> GetActiveClientCard();
 }

@@ -5,10 +5,19 @@ public static class CoffeeShopApi
     public static WebApplication MapCoffeeShopEndpoints(this WebApplication app)
     {
         app.MapGroup("/auth").MapAuthGroups();
+        app.MapGroup("/offers").MapOffersEndpoints();
         app.MapGroup("/cards").MapCardsEndpoints();
         app.MapGroup("/covers").MapCoversEndpoints();
         app.MapGroup("/reports").MapReportsEndpoints();
         return app;
+    }
+
+    private static IEndpointRouteBuilder MapOffersEndpoints(this IEndpointRouteBuilder group)
+    {
+        group.MapGet("/actual", () => "Получить актуальное скидочное предложение");
+        group.MapPost("/new-offer", () => "Создаить скидочное предложение");
+        group.MapPut("/offer", () => "Корректировать скидочное предложение");
+        return group;
     }
 
     private static IEndpointRouteBuilder MapReportsEndpoints(this IEndpointRouteBuilder group)

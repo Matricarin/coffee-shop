@@ -39,11 +39,8 @@ public static class CardCoversApi
 
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest,
         "application/problem+json")]
-    private static async Task<Results<Ok<List<CardCoverInfoDto>>, NotFound, BadRequest<ProblemDetails>>>
-        GetListAsync
-        (
-            HttpContext context
-        )
+    private static async Task<Ok<List<CardCoverInfoDto>>>
+        GetListAsync()
     {
         throw new NotImplementedException();
     }
@@ -87,11 +84,8 @@ public static class CardCoversApi
 
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest,
         "application/problem+json")]
-    private static async Task<Results<Ok<List<string>>, NotFound, BadRequest<ProblemDetails>>>
-        GetListFilesAsync
-        (
-            HttpContext context
-        )
+    private static async Task<Ok<List<string>>>
+        GetListFilesAsync()
     {
         throw new NotImplementedException();
     }

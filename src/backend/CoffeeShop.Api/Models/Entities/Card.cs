@@ -1,4 +1,4 @@
-﻿namespace CoffeeShop.Api.Models;
+﻿namespace CoffeeShop.Api.Models.Entities;
 
 public class Card
 {

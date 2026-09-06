@@ -1,8 +1,9 @@
 ﻿using CoffeeShop.Api.Models;
+using CoffeeShop.Api.Models.Dtos.Response;
 
 namespace CoffeeShop.Api.Services.Contracts;
 
 public interface IExternalPurchaseService
 {
-    List<ExternalPurchase> GetPurchases(DateTime from, DateTime to);
+    List<ExternalPaymentSystemResponse> GetPurchases(DateTime from, DateTime to);
 }

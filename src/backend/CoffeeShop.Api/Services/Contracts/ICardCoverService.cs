@@ -1,4 +1,5 @@
 ﻿using CoffeeShop.Api.Models;
+using CoffeeShop.Api.Models.Entities;
 
 namespace CoffeeShop.Api.Services.Contracts;
 

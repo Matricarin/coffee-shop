@@ -40,7 +40,7 @@ public static class CoffeeShopApi
 
     private static IEndpointRouteBuilder MapCoversEndpoints(this IEndpointRouteBuilder group)
     {
-        group.MapPost("/new-cover", () => "Админ добавляет новую обложку в хранилище");
+        group.MapPut("/new-cover", () => "Админ добавляет новую обложку в хранилище");
         group.MapGet("/list", () => "Получаем список обложек");
         group.MapGet("/{id}", (Guid id) => "Получаем выбранную обложку");
         group.MapDelete("/{id}", (Guid id) => "Админ удаляет обложку");

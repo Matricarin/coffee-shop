@@ -1,6 +1,6 @@
 ﻿namespace CoffeeShop.Api.Models.Dtos.Response;
 
-public sealed class CardCoverDto
+public sealed class CardCoverInfoDto
 {
     
 }

@@ -1,7 +1,15 @@
-﻿namespace CoffeeShop.Api.Infrastructure;
+﻿using CoffeeShop.Api.Models;
+using Microsoft.EntityFrameworkCore;
 
-public sealed class CoffeeShopContext 
+namespace CoffeeShop.Api.Infrastructure;
+
+public sealed class CoffeeShopContext : DbContext   
 {
+    public DbSet<Purchase> Purchases { get; set; }
 
-  
+    public DbSet<Card> Cards { get; set; }
+
+    public DbSet<CardCover> CardCovers { get; set; }
+
+    public DbSet<Offer> Offers { get; set; }
 }

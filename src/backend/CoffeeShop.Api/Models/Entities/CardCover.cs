@@ -6,6 +6,7 @@ public sealed class CardCover
     public required string Title { get; set; }
     public string? Tags { get; set; }
     public DateTime CreatedAt { get; set; }
+    public bool IsDeleted { get; set; }
     public long Popularity { get; set; }
     public required string ImageUrl { get; set; }
 }

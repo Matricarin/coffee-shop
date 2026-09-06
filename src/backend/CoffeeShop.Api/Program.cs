@@ -1,4 +1,4 @@
-using CoffeeShop.Api.Endpoints;
+using CoffeeShop.Api.Apis;
 using CoffeeShop.Api.Extensions;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
@@ -35,7 +35,7 @@ public static class Program
 
         app.UseAuthorization();
 
-        app.MapCoffeeShopEndpoints();
+        app.MapCoffeeShopApi();
 
         app.Run();
     }

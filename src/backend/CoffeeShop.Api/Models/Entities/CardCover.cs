@@ -8,5 +8,5 @@ public sealed class CardCover
     public DateTime CreatedAt { get; set; }
     public bool IsDeleted { get; set; }
     public long Popularity { get; set; }
-    public required string ImageUrl { get; set; }
+    public required string ImageUri { get; set; }
 }

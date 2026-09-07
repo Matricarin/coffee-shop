@@ -1,4 +1,5 @@
 using CoffeeShop.Api.Apis;
+using Scalar.AspNetCore;
 
 namespace CoffeeShop.Api;
 
@@ -10,6 +11,8 @@ public static class Program
 
         builder.Services.AddAuthorization();
 
+        builder.Services.AddOpenApi();
+
         WebApplication app = builder.Build();
 
         app.UseHttpsRedirection();
@@ -17,6 +20,10 @@ public static class Program
         app.UseAuthorization();
 
         app.MapCoffeeShopApi();
+
+        app.MapOpenApi();
+
+        app.MapScalarApiReference();
 
         app.Run();
     }

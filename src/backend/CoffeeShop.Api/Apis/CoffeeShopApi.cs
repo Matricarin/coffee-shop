@@ -4,7 +4,7 @@ public static class CoffeeShopApi
 {
     public static IEndpointRouteBuilder MapCoffeeShopApi(this IEndpointRouteBuilder app)
     {
-        app.MapGroup("/api/auth").MapAuthGroups();
+        app.MapAuthGroups();
 
         app.MapGroup("/api/offers").MapOffersApi();
 

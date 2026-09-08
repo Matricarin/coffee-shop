@@ -10,11 +10,24 @@ public static class OffersApi
 {
     public static IEndpointRouteBuilder MapOffersApi(this IEndpointRouteBuilder group)
     {
-        group.MapGet("/actual", GetActualOfferAsync);
+        group.MapGet("/actual", GetActualOfferAsync)
+            .WithName("ActualOffer")
+            .WithSummary("Акутальное скидочное предложение")
+            .WithDescription("Акутальное скидочное предложение")
+            .WithTags("Offers");
 
-        group.MapPost("/new-offer", PostNewOfferAsync);
+        group.MapPost("/new-offer", PostNewOfferAsync)
+            .WithName("CreateOffer")
+            .WithSummary("Создать новое скидочное предложение")
+            .WithDescription("Создать новое скидочное предложение")
+            .WithTags("Offers");
 
-        group.MapPut("/offer", PutOfferAsync);
+        group.MapPut("/offer", PutOfferAsync)
+            .WithName("UpdateOffer")
+            .WithSummary("Обновить скидочное предложение")
+            .WithDescription("Обновить скидочное предложение")
+            .WithTags("Offers");
+
         return group;
     }
 

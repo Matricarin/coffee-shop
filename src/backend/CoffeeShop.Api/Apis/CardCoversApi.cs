@@ -11,7 +11,7 @@ public static class CardCoversApi
     public static IEndpointRouteBuilder MapCardCoversApi(this IEndpointRouteBuilder group)
     {
         group.MapPost("/new-cover", PostNewCardCoverAsync)
-            .WithName("CreteCover")
+            .WithName("CreateCover")
             .WithSummary("Создать обложку для карточки")
             .WithDescription("Создать обложку для карточки")
             .WithTags("Covers");

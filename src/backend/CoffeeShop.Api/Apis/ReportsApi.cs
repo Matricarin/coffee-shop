@@ -1,8 +1,12 @@
-﻿namespace CoffeeShop.Api.Apis;
+﻿using CoffeeShop.Api.Models.Reports;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
+
+namespace CoffeeShop.Api.Apis;
 
 public static class ReportsApi
 {
-    // TODO: продолжить корректировку
     public static IEndpointRouteBuilder MapReportsApi(this IEndpointRouteBuilder group)
     {
         group.MapGet("/users/activity", GetUsersActivityReportAsync)
@@ -32,22 +36,50 @@ public static class ReportsApi
         return group;
     }
 
-    private static async Task GetCoversRatingAsync(HttpContext context)
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest,
+        "application/problem+json")]
+    private static async Task<Ok<CoversRatingReport>>
+        GetCoversRatingAsync
+        (
+            [Description("От")] [FromQuery] DateOnly from,
+            [Description("До")] [FromQuery] DateOnly to
+        )
     {
         throw new NotImplementedException();
     }
 
-    private static async Task GetRetentionRateReportAsync(HttpContext context)
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest,
+        "application/problem+json")]
+    private static async Task<Ok<RetentionRateReport>>
+        GetRetentionRateReportAsync
+        (
+            [Description("От")] [FromQuery] DateOnly from,
+            [Description("До")] [FromQuery] DateOnly to
+        )
     {
         throw new NotImplementedException();
     }
 
-    private static async Task GetRedemptionRateReportAsync(HttpContext context)
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest,
+        "application/problem+json")]
+    private static async Task<Ok<RedemptionRateReport>>
+        GetRedemptionRateReportAsync
+        (
+            [Description("От")] [FromQuery] DateOnly from,
+            [Description("До")] [FromQuery] DateOnly to
+        )
     {
         throw new NotImplementedException();
     }
 
-    private static async Task GetUsersActivityReportAsync(HttpContext context)
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest,
+        "application/problem+json")]
+    private static async Task<Ok<UsersActivityReport>>
+        GetUsersActivityReportAsync
+        (
+            [Description("От")] [FromQuery] DateOnly from,
+            [Description("До")] [FromQuery] DateOnly to
+        )
     {
         throw new NotImplementedException();
     }

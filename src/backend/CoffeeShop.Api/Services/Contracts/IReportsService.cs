@@ -7,6 +7,4 @@ public interface IReportsService
     UsersActivityReport GenerateUsersActivity();
 
     CoversRatingReport GenerateCoversRating();
-
-    CardsPurchasesReport GenerateCardsPurchases();
 }

@@ -31,13 +31,16 @@ public static class OffersApi
         return group;
     }
 
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound, 
+        "application/problem+json")]
     private static async Task<Results<Ok<OfferDto>, NotFound<ProblemDetails>>>
         GetActualOfferAsync()
     {
         throw new NotImplementedException();
     }
 
-    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest, "application/problem+json")]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest, 
+        "application/problem+json")]
     private static async Task<Created<OfferDto>>
         PostNewOfferAsync
         (
@@ -48,6 +51,10 @@ public static class OffersApi
         throw new NotImplementedException();
     }
 
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest, 
+        "application/problem+json")]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound,
+        "application/problem+json")]
     private static async Task<Results<Created, BadRequest<ProblemDetails>, NotFound<ProblemDetails>>>
         PutOfferAsync
         (

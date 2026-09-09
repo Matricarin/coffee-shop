@@ -6,9 +6,9 @@ public static class AuthApi
 {
     public static IEndpointRouteBuilder MapAuthGroups(this IEndpointRouteBuilder group)
     {
-        group.MapGroup("/api/auth/admin").MapAdminAuthApi();
+        group.MapGroup("/api/admin-auth").MapAdminAuthApi();
 
-        group.MapGroup("/api/auth/clients").MapClientsAuthApi();
+        group.MapGroup("/api/clients-auth").MapClientsAuthApi();
 
         return group;
     }
@@ -30,12 +30,12 @@ public static class AuthApi
         return group;
     }
 
-    private static async Task<Results<Ok, UnauthorizedHttpResult>> LoginAdminAsync(HttpContext context)
+    private static async Task<Results<Ok, UnauthorizedHttpResult>> LoginAdminAsync()
     {
         throw new NotImplementedException();
     }
 
-    private static async Task<Created> RegisterAdminAsync(HttpContext context)
+    private static async Task<Created> RegisterAdminAsync()
     {
         throw new NotImplementedException();
     }
@@ -63,17 +63,17 @@ public static class AuthApi
         return group;
     }
 
-    private static async Task<Ok> ConfirmClientAsync(HttpContext context)
+    private static async Task<Ok> ConfirmClientAsync()
     {
         throw new NotImplementedException();
     }
 
-    private static async Task<Results<Ok, UnauthorizedHttpResult>> LoginClientAsync(HttpContext context)
+    private static async Task<Results<Ok, UnauthorizedHttpResult>> LoginClientAsync()
     {
         throw new NotImplementedException();
     }
 
-    private static async Task<Created> RegisterClientAsync(HttpContext context)
+    private static async Task<Created> RegisterClientAsync()
     {
         throw new NotImplementedException();
     }

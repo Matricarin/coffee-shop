@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CoffeeShop.Api.Infrastructure.EntityConfigurations;
 
-public sealed class CardCoverEntityConfiguration : IEntityTypeConfiguration<CardCover>
+public sealed class CardEntityConfiguration : IEntityTypeConfiguration<Card>
 {
-    public void Configure(EntityTypeBuilder<CardCover> builder)
+    public void Configure(EntityTypeBuilder<Card> builder)
     {
         throw new NotImplementedException();
     }

@@ -55,7 +55,7 @@
                     <TextBlock
                         FontWeight="SemiBold"
                         Foreground="#2c3e50"
-                        Text="Email Address" />
+                        Text="Электронная почта" />
 
                     <TextBox Text="Место для электронной почты"
                              PlaceholderText="Введите электронную почту" />
@@ -67,7 +67,7 @@
                     <TextBlock
                         FontWeight="SemiBold"
                         Foreground="#2c3e50"
-                        Text="Password" />
+                        Text="Пароль" />
 
                     <TextBox
                         PasswordChar="•"
@@ -140,14 +140,8 @@
                             Cursor="Hand"
                             FontSize="14"
                             FontWeight="SemiBold"
-                            Padding="4,0">
-
-                        <Button.Foreground>
-                            <LinearGradientBrush EndPoint="100%,100%" StartPoint="0%,0%">
-                                <GradientStop Color="#0C6170" Offset="0" />
-                                <GradientStop Color="#84898C" Offset="1" />
-                            </LinearGradientBrush>
-                        </Button.Foreground>
+                            Padding="4,0"
+                            Foreground = "#0C6170">
 
                     </Button>
                 </StackPanel>

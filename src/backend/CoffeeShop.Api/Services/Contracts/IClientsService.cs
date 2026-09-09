@@ -1,10 +1,8 @@
-﻿using CoffeeShop.Api.Models.Users;
-
-namespace CoffeeShop.Api.Services.Contracts;
+﻿namespace CoffeeShop.Api.Services.Contracts;
 
 public interface IClientsService
 {
-    Client Register();
+    void Register();
     void Login();
     void Confirm();
 }

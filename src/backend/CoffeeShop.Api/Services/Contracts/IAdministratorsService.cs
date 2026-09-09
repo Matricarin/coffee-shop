@@ -1,9 +1,7 @@
-﻿using CoffeeShop.Api.Models.Users;
-
-namespace CoffeeShop.Api.Services.Contracts;
+﻿namespace CoffeeShop.Api.Services.Contracts;
 
 public interface IAdministratorsService
 {
-    Administrator Register();
+    void Register();
     void Login();
 }

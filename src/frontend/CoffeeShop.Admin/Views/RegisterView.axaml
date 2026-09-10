@@ -2,10 +2,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CoffeeShop.Admin.ViewModels"
              mc:Ignorable="d"
              d:DesignWidth="700"
              d:DesignHeight="850"
-             x:Class="CoffeeShop.Admin.Views.RegisterView">
+             x:Class="CoffeeShop.Admin.Views.RegisterView"
+             x:DataType="vm:RegisterViewModel">
+    <Design.DataContext>
+        <vm:RegisterViewModel/>
+    </Design.DataContext>
+
     <Border>
         <Border.Background>
             <LinearGradientBrush EndPoint="100%,100%"
@@ -51,7 +57,7 @@
                         Background="Transparent"
                         BorderBrush="#e1e8ed"
                         Padding="15,12"
-                        Text="Отображаемое имя"
+                        Text="{Binding Name}"
                         PlaceholderText="Введите свой псевдоним" />
                 </StackPanel>
 
@@ -65,7 +71,7 @@
                         BorderBrush="#e1e8ed"
                         Foreground="#2c3e50"
                         Padding="15,12"
-                        Text="Электронная почта"
+                        Text="{Binding Email}"
                         PlaceholderText="Введите электронную почту" />
                 </StackPanel>
 
@@ -81,7 +87,7 @@
                         Foreground="#2c3e50"
                         Padding="15,12"
                         PasswordChar="•"
-                        Text="Пароль"
+                        Text="{Binding Password}"
                         PlaceholderText="Введите свой пароль" />
 
                 </StackPanel>
@@ -99,7 +105,7 @@
                         Foreground="#2c3e50"
                         Padding="15,12"
                         PasswordChar="•"
-                        Text="Пароль"
+                        Text="{Binding PasswordConfirmation}"
                         PlaceholderText="Подтвердите пароль" />
 
                 </StackPanel>

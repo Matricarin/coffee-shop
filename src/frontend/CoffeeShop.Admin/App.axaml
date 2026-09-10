@@ -1,10 +1,14 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="CoffeeShop.Admin.App"
-             RequestedThemeVariant="Default">
+             xmlns:helpers="clr-namespace:CoffeeShop.Admin.Views.Helpers">
+
+    <Application.DataTemplates>
+        <helpers:ViewLocator/>
+    </Application.DataTemplates>
 
     <Application.Styles>
-        <FluentTheme />
+      <FluentTheme  />
     </Application.Styles>
 
 </Application>

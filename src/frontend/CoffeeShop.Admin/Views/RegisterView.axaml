@@ -33,12 +33,7 @@
                             <GradientStop Color="#0C6170" Offset="0" />
                             <GradientStop Color="#84898C" Offset="1" />
                         </LinearGradientBrush>
-
                     </Border.Background>
-
-                    <PathIcon Foreground="White"
-                              Height="40"
-                              Width="40" />
                 </Border>
 
                 <TextBlock

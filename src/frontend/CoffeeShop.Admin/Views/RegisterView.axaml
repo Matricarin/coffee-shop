@@ -1,0 +1,176 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CoffeeShop.Admin.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="700"
+             d:DesignHeight="850"
+             x:Class="CoffeeShop.Admin.Views.RegisterView"
+             x:DataType="vm:RegisterViewModel">
+
+    <Design.DataContext>
+        <vm:RegisterViewModel/>
+    </Design.DataContext>
+
+    <Border>
+        <Border.Background>
+            <LinearGradientBrush EndPoint="100%,100%"
+                                 StartPoint="0%,0%">
+                <GradientStop Color="#0C6170" Offset="0" />
+                <GradientStop Color="#84898C" Offset="1" />
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Border Margin="10"
+                VerticalAlignment="Center">
+
+            <StackPanel HorizontalAlignment="Center" Spacing="25">
+
+                <Border>
+
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="100%,100%" StartPoint="0%,0%">
+                            <GradientStop Color="#0C6170" Offset="0" />
+                            <GradientStop Color="#84898C" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+
+                <TextBlock
+                    FontSize="28"
+                    FontWeight="Bold"
+                    Foreground="#2c3e50"
+                    HorizontalAlignment="Center"
+                    Text="Зарегистрироваться" />
+
+                <StackPanel Spacing="8">
+                    <TextBlock
+                        FontWeight="SemiBold"
+                        Foreground="#2c3e50"
+                        Text="Имя" />
+                    <TextBox
+                        Background="Transparent"
+                        BorderBrush="#e1e8ed"
+                        Padding="15,12"
+                        Text="{Binding Name}"
+                        PlaceholderText="Введите свой псевдоним" />
+                </StackPanel>
+
+                <StackPanel Spacing="5">
+                    <TextBlock
+                        FontWeight="SemiBold"
+                        Foreground="#2c3e50"
+                        Text="Электронная почта" />
+                    <TextBox
+                        Background="Transparent"
+                        BorderBrush="#e1e8ed"
+                        Foreground="#2c3e50"
+                        Padding="15,12"
+                        Text="{Binding Email}"
+                        PlaceholderText="Введите электронную почту" />
+                </StackPanel>
+
+                <StackPanel Spacing="8">
+                    <TextBlock
+                        FontWeight="SemiBold"
+                        Foreground="#2c3e50"
+                        Text="Пароль" />
+
+                    <TextBox
+                        Background="Transparent"
+                        BorderBrush="#e1e8ed"
+                        Foreground="#2c3e50"
+                        Padding="15,12"
+                        PasswordChar="•"
+                        Text="{Binding Password}"
+                        PlaceholderText="Введите свой пароль" />
+
+                </StackPanel>
+
+                <StackPanel Spacing="8">
+
+                    <TextBlock
+                        FontWeight="SemiBold"
+                        Foreground="#2c3e50"
+                        Text="Подтверждение пароля" />
+
+                    <TextBox
+                        Background="Transparent"
+                        BorderBrush="#e1e8ed"
+                        Foreground="#2c3e50"
+                        Padding="15,12"
+                        PasswordChar="•"
+                        Text="{Binding PasswordConfirmation}"
+                        PlaceholderText="Подтвердите пароль" />
+
+                </StackPanel>
+
+                <Border IsVisible="False">
+                    <StackPanel Orientation="Horizontal"
+                                Spacing="8">
+                        <TextBlock
+                            FontSize="16"
+                            Text="⚠️"
+                            VerticalAlignment="Center" />
+
+                        <TextBlock
+                            FontSize="13"
+                            Foreground="#dc2626"
+                            Text="Сообщение об ошибке"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+
+                <Button Content="Зарегистрироваться"
+                        CornerRadius="12"
+                        Cursor="Hand"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Height="50"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" />
+
+                <Border
+                    CornerRadius="12"
+                    Height="10"
+                    HorizontalAlignment="Stretch"
+                    IsVisible="False">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="100%,100%" StartPoint="0%,0%">
+                            <GradientStop Color="#0C6170" Offset="0" />
+                            <GradientStop Color="#84898C" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <ProgressBar
+                        Foreground="White"
+                        Height="10"
+                        IsIndeterminate="True" />
+                </Border>
+
+                <Border
+                    Background="#e1e8ed"
+                    Height="1"
+                    Margin="20,10" />
+
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock
+                        FontSize="14"
+                        Foreground="#7f8c8d"
+                        Text="У вас уже есть аккаунт?" />
+                    <Button
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Content="Войти"
+                        Cursor="Hand"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Padding="4,0"
+                        Foreground="#0C6170" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Border>
+</UserControl>

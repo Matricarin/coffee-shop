@@ -1,6 +1,5 @@
 using CoffeeShop.Api.Apis;
-using CoffeeShop.Api.Extensions;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Scalar.AspNetCore;
 
 namespace CoffeeShop.Api;
 
@@ -8,34 +7,23 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args);
-
-        //builder.Services.AddCoffeeShopContext(builder.Configuration);
-
-        //builder.Services.AddIdentityContext();
-
-        //  TODO: Зачем нужен? На каком этапе?
-        builder.Services.AddHealthChecks();
+        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddAuthorization();
-        
-        var app = builder.Build();
 
-        //  TODO: Зачем он нужен и на каком этапе?
+        builder.Services.AddOpenApi();
 
-        app.MapHealthChecks("/health", new HealthCheckOptions()
-        {
-            ResponseWriter = async (context, health) =>
-            {
-                await context.Response.WriteAsync("healthy!");
-            }
-        });
-        
+        WebApplication app = builder.Build();
+
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
 
         app.MapCoffeeShopApi();
+
+        app.MapOpenApi();
+
+        app.MapScalarApiReference();
 
         app.Run();
     }

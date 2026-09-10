@@ -1,6 +1,6 @@
 ﻿namespace CoffeeShop.Api.Models.Reports;
 
-public class CardsPurchasesReport
+public sealed class RetentionRateReport
 {
     
 }

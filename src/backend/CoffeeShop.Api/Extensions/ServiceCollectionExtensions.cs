@@ -1,6 +1,4 @@
 ﻿using CoffeeShop.Api.Infrastructure;
-using CoffeeShop.Api.Models.Users;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoffeeShop.Api.Extensions;
@@ -22,15 +20,15 @@ public static class ServiceCollectionExtensions
     {
         //  TODO: проблема валидации почты и номера телефона
 
-        services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
-            {
-                options.Password.RequireDigit = true;
-                options.Password.RequiredLength = 8;
+        //services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+        //    {
+        //        options.Password.RequireDigit = true;
+        //        options.Password.RequiredLength = 8;
 
-                options.User.RequireUniqueEmail = false;
-            })
-            .AddEntityFrameworkStores<CoffeeShopContext>()
-            .AddUserManager<UserManager<ApplicationUser>>();
+        //        options.User.RequireUniqueEmail = false;
+        //    })
+        //    .AddEntityFrameworkStores<CoffeeShopContext>()
+        //    .AddUserManager<UserManager<ApplicationUser>>();
 
         //  TODO: почему нельзя зарегистрировать отдельных менеджеров для пользователей.
         //services.AddScoped<UserManager<Administrator>>();

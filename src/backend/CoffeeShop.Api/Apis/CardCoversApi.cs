@@ -10,17 +10,48 @@ public static class CardCoversApi
 {
     public static IEndpointRouteBuilder MapCardCoversApi(this IEndpointRouteBuilder group)
     {
-        group.MapPost("/new-cover", PostNewCardCoverAsync);
+        group.MapPost("/new-cover", PostNewCardCoverAsync)
+            .WithName("CreateCover")
+            .WithSummary("Создать обложку для карточки")
+            .WithDescription("Создать обложку для карточки")
+            .WithTags("Covers");
 
-        group.MapPut("/", PutCardCoverAsync);
+        group.MapPut("/", PutCardCoverAsync)
+            .WithName("UpdateCover")
+            .WithSummary("Обновить или создать обложку для карточки")
+            .WithDescription("Обновить или создать обложек для карточки")
+            .WithTags("Covers");
 
-        group.MapGet("/list", GetListAsync);
-        group.MapGet("/{coverId:guid}", GetCardCoverAsync);
+        group.MapGet("/list", GetListAsync)
+            .WithName("CoversList")
+            .WithSummary("Список обложек для карточек")
+            .WithDescription("Получить список обложек для карточек")
+            .WithTags("Covers");
 
-        group.MapGet("/files", GetListFilesAsync);
-        group.MapGet("/file/{coverId:guid}", GetCardCoverFileAsync);
+        group.MapGet("/{coverId:guid}", GetCardCoverAsync)
+            .WithName("Cover")
+            .WithSummary("Обложка для карточки")
+            .WithDescription("Получить обложку для карточки")
+            .WithTags("Covers");
 
-        group.MapDelete("/{coverId:guid}", DeleteCardCoverAsync);
+        group.MapGet("/files", GetListFilesAsync)
+            .WithName("CoversFilesList")
+            .WithSummary("Список файлов обложек для карточек")
+            .WithDescription("Получить список файлов обложек для карточек")
+            .WithTags("Covers");
+
+        group.MapGet("/file/{coverId:guid}", GetCardCoverFileAsync)
+            .WithName("CoverFile")
+            .WithSummary("Файл обложки для карточки")
+            .WithDescription("Получить файл обложки для карточки")
+            .WithTags("Covers");
+
+        group.MapDelete("/{coverId:guid}", DeleteCardCoverAsync)
+            .WithName("DeleteCover")
+            .WithSummary("Удалить обложку для карточки")
+            .WithDescription("Удалить обложку для карточки")
+            .WithTags("Covers");
+
         return group;
     }
 
@@ -39,11 +70,8 @@ public static class CardCoversApi
 
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest,
         "application/problem+json")]
-    private static async Task<Results<Ok<List<CardCoverInfoDto>>, NotFound, BadRequest<ProblemDetails>>>
-        GetListAsync
-        (
-            HttpContext context
-        )
+    private static async Task<Ok<List<CardCoverInfoDto>>>
+        GetListAsync()
     {
         throw new NotImplementedException();
     }
@@ -87,11 +115,8 @@ public static class CardCoversApi
 
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest,
         "application/problem+json")]
-    private static async Task<Results<Ok<List<string>>, NotFound, BadRequest<ProblemDetails>>>
-        GetListFilesAsync
-        (
-            HttpContext context
-        )
+    private static async Task<Ok<List<string>>>
+        GetListFilesAsync()
     {
         throw new NotImplementedException();
     }

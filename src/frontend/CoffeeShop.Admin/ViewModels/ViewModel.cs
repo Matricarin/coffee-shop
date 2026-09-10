@@ -7,6 +7,12 @@ public abstract class ViewModel : ObservableObject
     private string? _errorMessage;
     private bool _isBusy;
 
+    public bool IsBusy
+    {
+        get => _isBusy;
+        set => SetProperty(ref _isBusy, value);
+    }
+
     public string? ErrorMessage
     {
         get => _errorMessage;

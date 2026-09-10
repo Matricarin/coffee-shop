@@ -1,6 +1,8 @@
-﻿namespace CoffeeShop.Admin.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-public sealed class MainWindowViewModel
+namespace CoffeeShop.Admin.ViewModels;
+
+public partial class MainWindowViewModel : ViewModel
 {
-    
+    [ObservableProperty] private ViewModel currentPage;
 }

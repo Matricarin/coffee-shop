@@ -1,6 +1,6 @@
 ﻿namespace CoffeeShop.Admin.ViewModels.Pages;
 
-public sealed class ManagementViewModel
+public sealed class ManagementViewModel : ViewModel
 {
     
 }

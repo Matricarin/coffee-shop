@@ -1,6 +1,10 @@
-﻿namespace CoffeeShop.Admin.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-public sealed class ShellViewModel
+namespace CoffeeShop.Admin.ViewModels;
+
+public partial class ShellViewModel : ViewModel
 {
-    
+    [ObservableProperty] private ViewModel currentPage;
+
+
 }

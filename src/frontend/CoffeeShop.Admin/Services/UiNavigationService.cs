@@ -1,4 +1,5 @@
 ﻿using CoffeeShop.Admin.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
@@ -11,8 +12,27 @@ public interface IUiNavigationService
 
 public sealed class UiNavigationService : IUiNavigationService
 {
+    private readonly IServiceProvider _serviceProvider;
+    private MainWindowViewModel _mainWindowViewModel;
+
     public Task NavigateToAsync<T>() where T : ViewModel
     {
-        throw new NotImplementedException();
+        if (_mainWindowViewModel is null)
+        {
+            return Task.CompletedTask;
+        }
+
+        _mainWindowViewModel.CurrentPage = _serviceProvider.GetRequiredService<T>();
+        return Task.CompletedTask;
+    }
+
+    public UiNavigationService(IServiceProvider serviceProvider)
+    {
+        _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+    }
+
+    public void SetMainWindowViewModel(MainWindowViewModel viewModel)
+    {
+        _mainWindowViewModel = viewModel;
     }
 }

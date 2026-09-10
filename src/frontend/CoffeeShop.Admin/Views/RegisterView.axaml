@@ -124,6 +124,7 @@
                 </Border>
 
                 <Button Content="Зарегистрироваться"
+                        Command="{Binding RegisterCommand}"
                         CornerRadius="12"
                         Cursor="Hand"
                         FontSize="16"
@@ -162,6 +163,7 @@
                         Text="У вас уже есть аккаунт?" />
                     <Button
                         Background="Transparent"
+                        Command="{Binding NavigateToLoginCommand}"
                         BorderThickness="0"
                         Content="Войти"
                         Cursor="Hand"

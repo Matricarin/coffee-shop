@@ -96,6 +96,7 @@
                 </Border>
 
                 <Button Content="Войти"
+                        Command="{Binding LoginCommand}"
                         CornerRadius="12"
                         Cursor="Hand"
                         FontSize="16"
@@ -138,6 +139,7 @@
 
                     <Button Background="Transparent"
                             BorderThickness="0"
+                            Command="{Binding NavigateToRegisterCommand}"
                             Content="Зарегистрироваться"
                             Cursor="Hand"
                             FontSize="14"

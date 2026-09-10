@@ -24,6 +24,7 @@
 
         <Button DockPanel.Dock="Bottom" 
                 Content="Выйти"
+                Command="{Binding LogoutCommand}"
                 Margin="10"/>
 
         <ListBox Width="180"

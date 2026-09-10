@@ -1,6 +1,10 @@
-﻿namespace CoffeeShop.Admin.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-public sealed class LoginViewModel
+namespace CoffeeShop.Admin.ViewModels;
+
+public partial class LoginViewModel : ViewModel
 {
-    
+    [ObservableProperty] private string email = string.Empty;
+
+    [ObservableProperty] private string password = string.Empty;
 }

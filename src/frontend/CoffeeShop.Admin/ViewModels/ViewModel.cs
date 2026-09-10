@@ -1,10 +1,17 @@
-﻿namespace CoffeeShop.Admin.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-public abstract class ViewModel
+namespace CoffeeShop.Admin.ViewModels;
+
+public abstract class ViewModel : ObservableObject
 {
+    private string? _errorMessage;
     private bool _isBusy;
 
-    private string? _errorMessage;
+    public string? ErrorMessage
+    {
+        get => _errorMessage;
+        set => SetProperty(ref _errorMessage, value);
+    }
 
     public bool HasError => !string.IsNullOrWhiteSpace(_errorMessage);
 

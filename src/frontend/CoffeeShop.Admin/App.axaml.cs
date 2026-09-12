@@ -40,6 +40,7 @@ public partial class App : Application
         var collection = new ServiceCollection();
 
         collection.AddSingleton<IUiNavigationService, UiNavigationService>();
+        collection.AddTransient<IAuthenticationService, AuthenticationService>();
         collection.AddTransient<MainWindowViewModel>();
         collection.AddTransient<LoginViewModel>();
         collection.AddTransient<RegisterViewModel>();

@@ -9,6 +9,20 @@ public interface IAuthenticationService
     Task LogoutAsync();
 }
 
-public sealed class AuthenticationService
+public sealed class AuthenticationService : IAuthenticationService
 {
+    public Task RegisterAsync(string name, string email, string password)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public Task LoginAsync(string email, string password)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public Task LogoutAsync()
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CoffeeShop.Admin.Services;
@@ -12,7 +13,7 @@ public interface IAuthenticationService
 
 public sealed class AuthenticationService : IAuthenticationService
 {
-    private readonly ApiClient _api;
+    private readonly HttpClient _api;
 
     public Task RegisterAsync(string name, string email, string password)
     {
@@ -29,8 +30,8 @@ public sealed class AuthenticationService : IAuthenticationService
         throw new NotImplementedException();
     }
 
-    public AuthenticationService(ApiClient api)
+    public AuthenticationService(HttpClient api)
     {
-        _api = api;
+        _api = api ?? throw new ArgumentNullException(nameof(api));
     }
 }

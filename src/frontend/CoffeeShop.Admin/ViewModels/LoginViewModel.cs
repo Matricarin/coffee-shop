@@ -36,7 +36,7 @@ public partial class LoginViewModel : ViewModel
     [RelayCommand]
     private async Task NavigateToRegisterAsync()
     {
-        throw new NotImplementedException();
+        _navigationService.NavigateToAsync<RegisterViewModel>();
     }
 
     [RelayCommand]

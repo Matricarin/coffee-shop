@@ -8,6 +8,7 @@ using CoffeeShop.Admin.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.IO;
 
 namespace CoffeeShop.Admin;
 
@@ -38,9 +39,26 @@ public class App : Application
     {
         var collection = new ServiceCollection();
 
-        collection.AddTransient<IConfiguration>();
+        IConfiguration configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", false, true)
+            .Build();
 
-        collection.AddTransient<ApiClient>();
+        collection.AddSingleton(configuration);
+
+        collection.AddHttpClient<AuthenticationService>(client =>
+        {
+            var options = configuration.GetSection(ApiOptions.SectionName)
+                .Get<ApiOptions>();
+
+            if (!string.IsNullOrWhiteSpace(options.BaseAddress))
+            {
+                client.BaseAddress = new Uri(options.BaseAddress);
+            }
+
+            client.Timeout = TimeSpan.FromSeconds(options.TimeoutSeconds);
+        });
+
 
         collection.AddSingleton<IUiNavigationService, UiNavigationService>();
         collection.AddTransient<IAuthenticationService, AuthenticationService>();

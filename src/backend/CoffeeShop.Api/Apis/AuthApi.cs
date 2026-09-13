@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using CoffeeShop.Api.Models.Dtos.Requests;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 
 namespace CoffeeShop.Api.Apis;
 
@@ -27,7 +30,18 @@ public static class AuthApi
             .WithDescription("Вход пользователя с правами администратора")
             .WithTags("Admin");
 
+        group.MapPost("/logout", LogoutAdminAsync)
+            .WithName("LogoutAdmin")
+            .WithSummary("Выход пользователя с правами администратора")
+            .WithDescription("Выход пользователя с правами администратора")
+            .WithTags("Admin");
+
         return group;
+    }
+
+    private static async Task<Results<Ok, UnauthorizedHttpResult>> LogoutAdminAsync()
+    {
+        throw new NotImplementedException();
     }
 
     private static async Task<Results<Ok, UnauthorizedHttpResult>> LoginAdminAsync()
@@ -35,7 +49,13 @@ public static class AuthApi
         throw new NotImplementedException();
     }
 
-    private static async Task<Created> RegisterAdminAsync()
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest, "application/problem+json")]
+    private static async Task<Created> RegisterAdminAsync
+    (
+        HttpContext context,
+        [Description("Данные для регистрации администратора")]
+        RegisterAdminRequest request
+    )
     {
         throw new NotImplementedException();
     }
@@ -60,10 +80,21 @@ public static class AuthApi
             .WithDescription("Подтвердить пользователя с правами клиент")
             .WithTags("Client");
 
+        group.MapPost("/logout", LogoutClientAsync)
+            .WithName("LogoutClient")
+            .WithSummary("Выход пользователя с правами клиента")
+            .WithDescription("Выход пользователя с правами клиента")
+            .WithTags("Client");
+
         return group;
     }
 
     private static async Task<Ok> ConfirmClientAsync()
+    {
+        throw new NotImplementedException();
+    }
+
+    private static async Task<Results<Ok, UnauthorizedHttpResult>> LogoutClientAsync()
     {
         throw new NotImplementedException();
     }

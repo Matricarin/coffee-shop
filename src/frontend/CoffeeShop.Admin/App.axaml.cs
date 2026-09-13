@@ -4,12 +4,14 @@ using Avalonia.Markup.Xaml;
 using CoffeeShop.Admin.Services;
 using CoffeeShop.Admin.ViewModels;
 using CoffeeShop.Admin.ViewModels.Pages;
+using CoffeeShop.Admin.Views;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace CoffeeShop.Admin;
 
-public partial class App : Application
+public class App : Application
 {
     public IServiceProvider? Services { get; private set; }
 
@@ -24,12 +26,9 @@ public partial class App : Application
         {
             Services = ConfigureServices();
 
-            var viewModel = Services.GetRequiredService<MainWindowViewModel>();
+            MainWindowViewModel viewModel = Services.GetRequiredService<MainWindowViewModel>();
 
-            desktop.MainWindow = new Views.MainWindow()
-            {
-                DataContext = viewModel
-            };
+            desktop.MainWindow = new MainWindow { DataContext = viewModel };
         }
 
         base.OnFrameworkInitializationCompleted();
@@ -39,8 +38,13 @@ public partial class App : Application
     {
         var collection = new ServiceCollection();
 
+        collection.AddTransient<IConfiguration>();
+
+        collection.AddTransient<ApiClient>();
+
         collection.AddSingleton<IUiNavigationService, UiNavigationService>();
         collection.AddTransient<IAuthenticationService, AuthenticationService>();
+
         collection.AddTransient<MainWindowViewModel>();
         collection.AddTransient<LoginViewModel>();
         collection.AddTransient<RegisterViewModel>();
